@@ -2,6 +2,7 @@ services:
   - type: web
     name: ai-debug-assistant
     env: python
+    plan: free
     buildCommand: pip install -r server/requirements.txt && npm --prefix client install && npm --prefix client run build
     startCommand: cd server && gunicorn app:app --bind 0.0.0.0:$PORT
     healthCheckPath: /health
